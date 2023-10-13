@@ -23,22 +23,22 @@ GET2 : <a href="get2?id2=get-hong">GET @GetMapping</a> <br>
 <hr>
 POST - DTO (@RequestMapping)
 <form action="postDTO" method="post">
-<input type="text" name="id" value="post-hong1">
-<input type="text" name="pw" value="post-1111">
+<input type="text" name="id" value="post-dto-hong1">
+<input type="text" name="pw" value="post-dto-1111">
 <input type="submit" value="post request">
 </form> 
 <hr>
 POST - Map (@PostMapping)
 <form action="postMap" method="post">
-<input type="text" name="id" value="post-hong1">
-<input type="text" name="pw" value="post-1111">
+<input type="text" name="id" value="post-map-hong1">
+<input type="text" name="pw" value="post-map-1111">
 <input type="submit" value="post request">
 </form> 
 <hr>
 POST - List(Name 값이 같은 경우)
 <form action="postList" method="post">
-<input type="text" name="id" value="post-hong1">
-<input type="text" name="id" value="post-hong2">
+<input type="text" name="id" value="post-list-hong1">
+<input type="text" name="id" value="post-list-hong2">
 <input type="submit" value="post request">
 </form>
 </h3>
@@ -59,15 +59,15 @@ Redirect 방식
 <hr>
 POST - DTO (String - Model 방식)
 <form action="postSM" method="post">
-<input type="text" name="id" value="post-hong1">
-<input type="text" name="pw" value="post-1111">
+<input type="text" name="id" value="post-string-model-hong1">
+<input type="text" name="pw" value="post-string-model-1111">
 <input type="submit" value="post request">
 </form> 
 <hr>
 POST - DTO (ModelAndView 방식)
 <form action="postMAV" method="post">
-<input type="text" name="id" value="post-hong1">
-<input type="text" name="pw" value="post-1111">
+<input type="text" name="id" value="post-modelandview-hong1">
+<input type="text" name="pw" value="post-modelandview-1111">
 <input type="submit" value="post request">
 </form> 
 </h2>

@@ -19,24 +19,23 @@ import com.myweb.service.IMemberService;
 
 
 @Controller
-@RequestMapping("member")
-public class MemberController{
+@RequestMapping("membermybatis")
+public class MemberMybatisController{
 	
 	String view;
 	
 	@Autowired
-	@Qualifier("memberServiceImpl")
+	@Qualifier("memberMybatisServiceImpl")
 	IMemberService service;
 	
 	@RequestMapping("main")
 	public String main() {
 		System.out.println("main");		
 		
-		view = "member/main";
+		view = "membermybatis/main";
 		
 		return view;				
-	}
-		
+	}		
 	
 	@RequestMapping(value = "memberList", method = {RequestMethod.GET, RequestMethod.POST})
 	public String memberList(Model model) {
@@ -45,7 +44,7 @@ public class MemberController{
 		List<MemberDTO> list = service.getMemberList();		
 		model.addAttribute("list", list);
 		
-		view = "member/memberList";
+		view = "membermybatis/memberList";
 		
 		return view;		
 		
@@ -55,7 +54,7 @@ public class MemberController{
 	public String join() {
 		System.out.println("join - get");
 		
-		view = "member/join";
+		view = "membermybatis/join";
 		
 		return view;		
 	}
@@ -76,7 +75,7 @@ public class MemberController{
 	public String login() {
 		System.out.println("login - get");
 		
-		view = "member/login";		
+		view = "membermybatis/login";		
 		
 		return view;		
 	}
@@ -85,7 +84,7 @@ public class MemberController{
 	public String loginAction(MemberDTO dto, HttpSession session) {
 		System.out.println("login - post - logindto");
 		
-		view = "member/login";
+		view = "membermybatis/login";
 		String id = dto.getId();
 		String pw = dto.getPw();		
 		
@@ -116,7 +115,7 @@ public class MemberController{
 
 		model.addAttribute("dto", service.getMember(dto));
 		
-		view = "member/update";		
+		view = "membermybatis/update";		
 		
 		return view;		
 	}
@@ -124,6 +123,7 @@ public class MemberController{
 	@PostMapping("update")
 	public String updateAction(MemberDTO dto, HttpSession session) {
 		System.out.println("update - post");
+		System.out.println(dto);
 		
 		String id = (String)session.getAttribute("id");
 		dto.setId(id);
@@ -140,7 +140,7 @@ public class MemberController{
 	public String delete() {		
 		System.out.println("delete - get");
 		
-		view = "member/delete";
+		view = "membermybatis/delete";
 		
 		return view;		
 		
@@ -180,5 +180,6 @@ public class MemberController{
 		return view;		
 		
 	}	
-	
+
+
 }

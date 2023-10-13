@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myweb.mybatis.mapper.MemberMapper">
+
+        
+    <select id="getMemberMap" parameterType="String" resultType="Map">
+        <![CDATA[
+        select idx,id,pw,name,role,regdate from member where id = #{id}       
+        ]]>
+    </select>
+    
+    <select id="getMemberDTO" resultType="com.myweb.dto.MemberDTO">
+        <![CDATA[
+        select idx,id,pw,name,role,regdate 
+        from member 
+        where id = #{id}        
+        ]]>
+    </select>
+        
+    <select id="getMemberListMap" resultType="Map">
+        <![CDATA[
+        select idx,id,pw,name,role,regdate 
+        from member 
+        order by idx desc
+        ]]>
+    </select>
+    
+    <select id="getMemberList" resultType="com.myweb.dto.MemberDTO">
+        <![CDATA[
+        select idx,id,pw,name,role,regdate 
+        from member 
+        order by idx desc 
+        ]]>
+    </select>     
+    
+    <insert id="insert" parameterType="com.myweb.dto.MemberDTO">
+        insert into member(id, pw, name, role) 
+        values (#{id}, #{pw}, #{name}, #{role})        
+    </insert>
+
+    <update id="update" parameterType="com.myweb.dto.MemberDTO">
+        update member 
+        set pw = #{pw}, name = #{name}, role = #{role} 
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="com.myweb.dto.MemberDTO">
+        delete from member 
+        where id = #{id}
+    </delete> 
+    
+    <select id="getMemberSearchNameList" parameterType="com.myweb.dto.MemberDTO" resultType="com.myweb.dto.MemberDTO">
+        <![CDATA[
+        select idx,id,pw,name,role,regdate from member
+        where 1 = 1
+        ]]>
+        <if test="name != null"> 
+            and name like CONCAT('%',#{name},'%')
+        </if>
+        <![CDATA[
+        order by idx desc
+        ]]>
+        
+    </select>  
+    
+    <select id="getMemberCount" resultType="int">
+        <![CDATA[
+        select count(*) from member      
+        ]]>
+    </select>
+    
+    <select id="getMemberListPaging" parameterType="Map" resultType="com.myweb.dto.MemberDTO">
+        <![CDATA[
+        select idx,id,pw,name,role,regdate from member 
+        order by idx desc limit #{listNum} offset #{offset}
+        ]]>
+    </select>
+    
+
+</mapper>

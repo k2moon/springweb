@@ -10,8 +10,7 @@
 <%@include file="submenu.jsp" %>
 <h2>로그인</h2>
 <hr>
-<%=request.getParameter("rs") %>
-<%=request.getAttribute("rs") %>
+rs:<%=request.getAttribute("rs") %>
 </hr>
 <form action="login" method="post">
 	<table border="1">

@@ -1,13 +1,8 @@
 package com.myweb.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,17 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myweb.dto.MemberDTO;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
 	public String home() {	
 		
@@ -127,15 +115,7 @@ public class HomeController {
 		return mav;
 		
 	}
-	
-	@GetMapping("response")
-	public String response() {
-		System.out.println("response");
-		
-		
-		return "test/response";		
-	}
-	
+
 	
 	
 }

@@ -3,18 +3,17 @@ package com.myweb.serviceimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.myweb.dao.MemberDAO;
 import com.myweb.dto.MemberDTO;
+import com.myweb.mybatis.mapper.MemberMapper;
 import com.myweb.service.IMemberService;
 
 @Service
-public class MemberServiceImpl implements IMemberService{
+public class MemberMybatisMapperServiceImpl implements IMemberService{
 	
-	@Autowired	
-	MemberDAO dao;
+	@Autowired
+	MemberMapper dao;
 
 	@Override
 	public List<MemberDTO> getMemberList() {
